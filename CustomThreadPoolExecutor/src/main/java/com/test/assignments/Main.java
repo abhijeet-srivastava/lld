@@ -1,12 +1,14 @@
 package com.test.assignments;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        Main main = new Main();
-        main.testOneShot();
         //main.testOneShotSchedule();
         //main.testFixedRate();
         //main.testFixedDelay();
