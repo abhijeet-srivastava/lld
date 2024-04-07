@@ -1,17 +1,15 @@
 package com.test.assignments;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello world!");
-        //main.testOneShotSchedule();
-        //main.testFixedRate();
-        //main.testFixedDelay();
+        Main main = new Main();
+        main.testOneShotSchedule();
+        main.testFixedRate();
+        main.testFixedDelay();
+        Thread.sleep(90000*10000);
     }
 
     private void testFixedRate() {
