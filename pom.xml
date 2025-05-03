@@ -29,8 +29,11 @@
         
     <module>JobScheduler</module>
         
-    <module>design-pattern</module>
     <module>MessageQueue</module>
+      <module>StockExchange</module>
+    <module>design-patterns</module>
+      <module>ElevatorSystem</module>
+      <module>assignment</module>
 
   </modules>
     
@@ -64,18 +67,25 @@
             
       <artifactId>guava</artifactId>
             
-      <version>31.1-jre</version>
-          
+      <version>32.0.0-android</version>
+    </dependency>
+    <dependency>
+
+      <groupId>org.springframework</groupId>
+
+      <artifactId>spring-core</artifactId>
+
+      <version>6.1.6</version>
+
     </dependency>
         
     <dependency>
-            
+
       <groupId>org.springframework.statemachine</groupId>
-            
+
       <artifactId>spring-statemachine-core</artifactId>
-            
-      <version>3.2.1</version>
-          
+      <version>4.0.0</version>
+
     </dependency>
         
     <dependency>
