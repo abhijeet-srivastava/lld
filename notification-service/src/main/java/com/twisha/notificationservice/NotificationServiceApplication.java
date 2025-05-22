@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
@@ -16,9 +17,9 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @EnableRabbit
 public class NotificationServiceApplication {
 
-	public static final String QUEUE_MESSAGES_DLQ = "baeldung-messages-queue";
-	public static final String QUEUE_MESSAGES = "baeldung-messages-queue";
-	public static final String EXCHANGE_MESSAGES = "baeldung-messages-exchange";
+	public static final String QUEUE_MESSAGES_DLQ = "notifications-dlq";
+	public static final String QUEUE_MESSAGES = "notifications";
+	public static final String EXCHANGE_MESSAGES_DLQ = "notifications-exchange-dlq";
 
 	public static void main(String[] args) {
 		SpringApplication.run(NotificationServiceApplication.class, args);
@@ -34,21 +35,35 @@ public class NotificationServiceApplication {
 		return mailSender;
 	}
 
+	@Configuration
+	class RabbitMQConfig {
+		@Bean
+		public Queue myQueue() {
+			return new Queue("notifications", false);
+		}
+	}
+
 	@Bean
 	public Queue messageQueue() {
 		return QueueBuilder.durable(QUEUE_MESSAGES)
-				.withArgument("x-dead-letter-exchange", "")
+				.withArgument("x-dead-letter-exchange", EXCHANGE_MESSAGES_DLQ)
 				.withArgument("x-dead-letter-routing-key", QUEUE_MESSAGES_DLQ)
 				.build();
 	}
 
 	@Bean
-	public DirectExchange messageExchange() {
-		return new DirectExchange(EXCHANGE_MESSAGES);
+	public Queue dlq() {
+		return QueueBuilder.durable(QUEUE_MESSAGES_DLQ).build();
 	}
 
-	public Binding bindingMessage() {
-		return BindingBuilder.bind(messageQueue()).to(messageExchange()).with(QUEUE_MESSAGES);
+	@Bean
+	public DirectExchange dlxExchange() {
+		return new DirectExchange(EXCHANGE_MESSAGES_DLQ);
+	}
+
+	@Bean
+	public Binding dlqBinding() {
+		return BindingBuilder.bind(dlq()).to(dlxExchange()).with(QUEUE_MESSAGES_DLQ);
 	}
 
 

@@ -3,12 +3,14 @@ package com.twisha.notificationservice.service;
 import com.twisha.notificationservice.model.NotificationRequest;
 import com.twisha.notificationservice.model.NotificationType;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationManager {
     private final RabbitTemplate template;
 
+    @Autowired
     public NotificationManager(RabbitTemplate template) {
         this.template = template;
     }
