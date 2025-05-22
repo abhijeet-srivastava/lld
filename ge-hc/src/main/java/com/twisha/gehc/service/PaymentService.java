@@ -1,2 +1,4 @@
-package com.twisha.gehc.service;public class PaymentService {
+package com.twisha.gehc.service;
+
+public class PaymentService {
 }

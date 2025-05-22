@@ -1,2 +1,4 @@
-package com.twisha.gehc.service;public class NotificationService {
+package com.twisha.gehc.service;
+
+public class NotificationService {
 }

@@ -17,9 +17,10 @@ public class MoleculePrinter {
 
     public static void main(String[] args) {
         MoleculePrinter mp = new MoleculePrinter();
-        //mp.printH2SO4(10);
+        mp.printH2SO4(10);
+        System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~");
         mp.printPropane(5);
-        //System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~");
+        //
         // Shutdown executor and wait for tasks to complete
         mp.executor.shutdown();
         try {

@@ -1,2 +1,4 @@
-package com.twisha.gehc.model;public class InputEvent {
+package com.twisha.gehc.model;
+
+public class InputEvent {
 }

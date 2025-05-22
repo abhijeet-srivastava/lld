@@ -1,2 +1,4 @@
-package com.twisha.gehc.service;public class InventoryManagementService {
+package com.twisha.gehc.service;
+
+public class InventoryManagementService {
 }
