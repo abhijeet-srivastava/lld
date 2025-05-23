@@ -34,6 +34,9 @@
     <module>design-patterns</module>
       <module>ElevatorSystem</module>
       <module>assignment</module>
+      <module>worker-scheduler</module>
+      <module>tekion</module>
+      <module>atlassian</module>
 
   </modules>
     
