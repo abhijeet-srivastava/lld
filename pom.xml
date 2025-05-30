@@ -37,6 +37,7 @@
       <module>worker-scheduler</module>
       <module>tekion</module>
       <module>atlassian</module>
+      <module>snake-game</module>
 
   </modules>
     

@@ -16,4 +16,12 @@ public abstract class Piece {
     public void setPosition(Cell position) {
         this.position = position;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Cell getPosition() {
+        return position;
+    }
 }
